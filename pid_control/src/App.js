@@ -1,30 +1,23 @@
 import FormComponent from './FormComponent'
 import ReactorComponent from './ReactorComponent'
 import ChartComponent from './ChartComponent'
-import './App.css'
-import { useState } from 'react'
+import ReactorModel from './ReactorModel';
 
 function App() {
-
-  const [model, setModel] = useState(0)
-
-  function handleModel(){
-    setModel(model + 1)
-  }
-
+  var viewModel = new ReactorModel(
+    {p: 10, i: 0, d: 0}
+  );
+  
   return (
     <div className="AppWrapper">
-      <FormComponent/>
+      <FormComponent viewModel={viewModel}/>
       <div className="GraphicalWrapper">
         <ReactorComponent/>
         <ChartComponent
-          model={model}
+          viewModel={viewModel}
         />
-        <button onClick={handleModel}>botão</button>
       </div>
-      
     </div>
-    
   );
 }
 

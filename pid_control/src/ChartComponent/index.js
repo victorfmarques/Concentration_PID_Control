@@ -4,16 +4,15 @@ import './index.css'
 
 const ChartComponent = (props) =>{
 
-    const {model} = props
+    const {viewModel} = props
 
     const [listModel, setListModel] = useState([])
-    
+
     const chartRef = React.createRef();
     
 
     function handleChart(){
         const myChartRef = chartRef.current.getContext("2d");
-        console.log(listModel)
         new Chart(
             myChartRef,
             {
@@ -24,7 +23,7 @@ const ChartComponent = (props) =>{
                     datasets: [
                         {
                             label: "Concentração",
-                            data: listModel ,
+                            data: listModel.map(item => item.getConcentration()) ,
                         }
                     ]
                 },
@@ -37,11 +36,10 @@ const ChartComponent = (props) =>{
         )
     }
 
-
     useEffect(()=>{
-        setListModel(listModel.concat(model))
+        setListModel([... listModel, viewModel])
         handleChart();
-    },[model]) 
+    },[viewModel]) 
         
 
     return (
