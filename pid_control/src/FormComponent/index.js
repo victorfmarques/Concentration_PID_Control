@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 
-const FormComponent =  ({viewModel}) =>{
+const FormComponent =  (props) =>{
     
+    const {viewModel} = props
+
     const [p, setP] = useState(0);
     const [i, setI] = useState(0);
     const [d, setD] = useState(0);

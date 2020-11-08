@@ -8,6 +8,13 @@ class ReactorModel {
     p;
     i;
     d;
+
+    getConcentration(){
+        return this.p + this.i + this.d
+    }
 }
+
+
+
 
 export default ReactorModel
