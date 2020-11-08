@@ -9,19 +9,19 @@ const FormComponent =  ({viewModel}) =>{
     function handleP(input){
         let value = input.target.value;
         setP(value);
-        viewModel.p = parseFloat(value);
+        viewModel.p = parseFloat(value ? value : 0);
     }
 
     function handleI(input){
         let value = input.target.value;
         setI(value);
-        viewModel.i = parseFloat(value);
+        viewModel.i = parseFloat(value ? value : 0);
     }
 
     function handleD(input){
         let value = input.target.value;
         setD(value);
-        viewModel.d = parseFloat(value);
+        viewModel.d = parseFloat(value ? value : 0);
     }
 
     return (
