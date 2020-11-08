@@ -1,34 +1,47 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Chart from "chart.js";
 import './index.css'
 
-const ChartComponent = () =>{
+const ChartComponent = (props) =>{
 
+    const {model} = props
+
+    const [listModel, setListModel] = useState([])
+    
     const chartRef = React.createRef();
     
-    useEffect(()=>{
+
+    function handleChart(){
         const myChartRef = chartRef.current.getContext("2d");
-        
+        console.log(listModel)
         new Chart(
             myChartRef,
             {
                 type: "line",
                 data: {
                     //Bring in data
-                    labels: ["-10", "-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0"],
+                    labels: listModel.map(item => listModel.indexOf(item).toString()),
                     datasets: [
                         {
                             label: "Concentração",
-                            data: [86, 67, 91,],
+                            data: listModel ,
                         }
                     ]
                 },
                 options: {
-                    //Customize chart options
+                    scales:{
+                        display: true
+                    }
                 }
             }
         )
-    },[]) 
+    }
+
+
+    useEffect(()=>{
+        setListModel(listModel.concat(model))
+        handleChart();
+    },[model]) 
         
 
     return (
