@@ -7,7 +7,7 @@ const ChartComponent = (props) =>{
     const {viewModel} = props
 
     const [listModel, setListModel] = useState([])
-
+    
     const chartRef = React.createRef();
     
 
@@ -19,11 +19,11 @@ const ChartComponent = (props) =>{
                 type: "line",
                 data: {
                     //Bring in data
-                    labels: listModel.map(item => listModel.indexOf(item).toString()),
+                    labels: listModel.map(item=> listModel.indexOf(item).toString()),
                     datasets: [
                         {
                             label: "Concentração",
-                            data: listModel.map(item => item.getConcentration()) ,
+                            data: listModel.map(item=> item.getConcentration()),
                         }
                     ]
                 },
@@ -37,10 +37,9 @@ const ChartComponent = (props) =>{
     }
 
     useEffect(()=>{
-        setListModel([... listModel, viewModel])
+        setListModel(listModel.concat(viewModel))
         handleChart();
-    },[viewModel]) 
-        
+    }, [viewModel] )
 
     return (
         <React.Fragment>
