@@ -1,0 +1,9 @@
+.AppWrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.GraphicalWrapper{
+    display: flex;
+    flex-direction: column;
+}
