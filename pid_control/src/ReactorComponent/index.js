@@ -1,7 +1,9 @@
 import React from 'react'
 
 
-const ReactorComponent = () =>{
+const ReactorComponent = (props) =>{
+
+    const {model} = props
 
     return (
         <React.Fragment>
