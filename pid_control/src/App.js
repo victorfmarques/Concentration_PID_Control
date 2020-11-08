@@ -1,6 +1,7 @@
 import FormComponent from './FormComponent'
 import ReactorComponent from './ReactorComponent'
 import ChartComponent from './ChartComponent'
+import './App.css'
 
 function App() {
   return (
