@@ -1,30 +1,33 @@
 import React, {useEffect} from 'react'
+import logo from './Tanque.png'; 
+// import './index.css';
 
 
 const ReactorComponent = (props) =>{
 
     const {model} = props
+    // model.classe = 'vermelho';
+    
+    // function trocaClasse(){
+    //     if(classe == 'vermelho'){
+    //         classe = 'amarelo';
+    //     } 
+    //     else{
+    //         classe = 'vermelho';
+    //     }
 
-    var canvas = document.getElementById('canvas');
+    //     console.log(classe);
+    //     // ReactDOM.render(button, document.body);
+    // }
 
-    function desenhaImagem(){
-        var ctx = canvas.getContext("2d");
-        var tanque = new Image();
-        tanque.src = "tanque.png";
-
-        ctx.drawImage(tanque, 0, 0, 500, 500);
-    }
-
-    useEffect(()=>{
-        if (canvas)
-        desenhaImagem();
-    },[])
-
+    // const button = <button className={model.classe}>Teste</button>;
     
     return (
         <React.Fragment>
             REACTOR
-            <canvas id="canvas" width="500" height="500"/>
+            {/* <canvas id="canvas" width="500" height="500"/> */}
+            <img height="500" width="500" src={logo}/>
+            {/* {button} */}
         </React.Fragment>
     )
 }

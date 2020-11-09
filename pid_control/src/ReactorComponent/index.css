@@ -1,0 +1,18 @@
+button {
+    color: white;
+    background: blue;
+    transition: background 1s;
+    }
+    
+    button:hover,
+    button:focus {
+    background: red;
+    }
+
+.amarelo {
+    background-color: yellow;
+}
+
+.vermelho{
+    background-color: red;
+}
