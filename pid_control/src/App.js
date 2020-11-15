@@ -9,10 +9,6 @@ function App() {
     {p: 10, i: 0, d: 0}
   );
   
-    useEffect(()=>{
-      console.log(viewModel)
-    },
-    [viewModel])
 
   return (
     <div className="AppWrapper">
