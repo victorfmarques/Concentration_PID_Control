@@ -1,0 +1,21 @@
+.reactorWrapper{
+    width: 50vw;
+    height: 50vh;
+}
+
+.reactor{
+    border: solid;
+    border-radius: 30px;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.reactorContent{
+    background-image: linear-gradient(white, #0000ff);
+    width: inherit;
+    height: 30%;
+    border-radius: inherit;
+}
