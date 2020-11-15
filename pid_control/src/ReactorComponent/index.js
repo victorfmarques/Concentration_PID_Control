@@ -8,10 +8,10 @@ const ReactorComponent = (props) =>{
 
     function mudarVolume(){
         if(viewModel.volume == 100){
-            document.getElementById("liquido").style.height='20%';
+            document.getElementById("liquido").style.height='33%';
         }
         else if(viewModel.volume == 200){
-            document.getElementById("liquido").style.height='65%';
+            document.getElementById("liquido").style.height='66%';
         }
         else if(viewModel.volume == 300){
             document.getElementById("liquido").style.height='100%';
