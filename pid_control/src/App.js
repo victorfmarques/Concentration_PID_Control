@@ -9,7 +9,6 @@ function App() {
     {p: 10, i: 0, d: 0}
   );
   
-
   return (
     <div className="AppWrapper">
       <FormComponent viewModel={viewModel}/>
