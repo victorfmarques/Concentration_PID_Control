@@ -13,7 +13,7 @@ function App() {
     <div className="AppWrapper">
       <FormComponent viewModel={viewModel}/>
       <div className="GraphicalWrapper">
-        <ReactorComponent/>
+        <ReactorComponent viewModel={viewModel}/>
         <ChartComponent
           viewModel={viewModel}
         />

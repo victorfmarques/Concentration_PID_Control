@@ -18,54 +18,55 @@ const ReactorComponent = (props) =>{
         }
     }
 
-    function mudarConcentracao() {
-        if(viewModel.concentracao > 0 && viewModel.concentracao <= 0.1){
+    function mudarconcentracao() {
+        if(viewModel.concentracaoE > 0 && viewModel.concentracaoE <= 0.1){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #0000ff)';
         }
-        else if(viewModel.concentracao > 0.1 && viewModel.concentracao <= 0.2){
+        else if(viewModel.concentracaoE > 0.1 && viewModel.concentracaoE <= 0.2){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #3000FF)';
         }
-        else if(viewModel.concentracao > 0.2 && viewModel.concentracao <= 0.3){
+        else if(viewModel.concentracaoE > 0.2 && viewModel.concentracaoE <= 0.3){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #3F00FF)';
         }
-        else if(viewModel.concentracao > 0.3 && viewModel.concentracao <= 0.4){
+        else if(viewModel.concentracaoE > 0.3 && viewModel.concentracaoE <= 0.4){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #4E00FF)';
         }
-        else if(viewModel.concentracao > 0.4 && viewModel.concentracao <= 0.5){
+        else if(viewModel.concentracaoE > 0.4 && viewModel.concentracaoE <= 0.5){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #5D01FF)';
         }
-        else if(viewModel.concentracao > 0.5 && viewModel.concentracao <= 0.6){
+        else if(viewModel.concentracaoE > 0.5 && viewModel.concentracaoE <= 0.6){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #6B01FF)';
         }
-        else if(viewModel.concentracao > 0.6 && viewModel.concentracao <= 0.7){
+        else if(viewModel.concentracaoE > 0.6 && viewModel.concentracaoE <= 0.7){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #7B00FF)';
         }
-        else if(viewModel.concentracao > 0.7 && viewModel.concentracao <= 0.8){
+        else if(viewModel.concentracaoE > 0.7 && viewModel.concentracaoE <= 0.8){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #8C00FF)';
         }
-        else if(viewModel.concentracao > 0.8){
+        else if(viewModel.concentracaoE > 0.8){
             document.getElementById("liquido").style.backgroundImage='linear-gradient(white, #9700FF)';
         }
     }
 
-    useEffect(()=>{
-        viewModel = {props};
-
+    document.onchange = (ev)=>{
+        viewModel = props.viewModel;
         mudarVolume();
-        mudarConcentracao();
-    }, [props]); 
+        mudarconcentracao();
+    }; 
 
     return (
         <React.Fragment>
-            <div className='reactorWrapper'>
-                <div className='reactor'>
-                    <div id='liquido' className='reactorContent'>
+            <div className="container-fluid">
+                <div className='reactorWrapper'>
+                    <div className='reactor'>
+                        <div id='liquido' className='reactorContent'>
 
+                        </div>
                     </div>
                 </div>
             </div>
             {/* <button onClick={mudarVolume}>Mudar</button>
-            <button onClick={mudarConcentracao}>Mudar</button> */}
+            <button onClick={mudarconcentracaoE}>Mudar</button> */}
         </React.Fragment>
     )
 }
