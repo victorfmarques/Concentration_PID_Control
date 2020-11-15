@@ -65,9 +65,11 @@ const ChartComponent = (props) =>{
 
     return (
         <React.Fragment>
-            <div className="ChartWrapper">
-                <div className="chartAreaWrapper">
-                    <canvas id="myChart" ref={chartRef} />
+            <div className="container-fluid">
+                <div className="ChartWrapper">
+                    <div className="chartAreaWrapper">
+                        <canvas id="myChart" ref={chartRef} />
+                    </div>
                 </div>
             </div>
         </React.Fragment>
