@@ -30,14 +30,18 @@ const ChartComponent = (props) =>{
                                 suggestedMax: 100
                             }
                         }]
+                    },
+                    animation: {
+                        duration: 0
                     }
                 }
             }
         )
     }
+    
 
     useEffect(()=>{
-        const chart = drawChart()
+        var chart = drawChart()
 
         var countMeasures = -1
         setInterval(()=>{
@@ -46,6 +50,10 @@ const ChartComponent = (props) =>{
             if (chart != null){
                 chart.data.labels.push(countMeasures.toString())
                 chart.data.datasets[0].data.push(viewModel.getConcentration())
+                if (chart.data.labels.length > 5){
+                    chart.data.labels.splice(0,1)
+                    chart.data.datasets[0].data.splice(0,1)
+                }
                 chart.update();
             }
         } ,1000);
