@@ -2,7 +2,7 @@ import FormComponent from './FormComponent'
 import ReactorComponent from './ReactorComponent'
 import ChartComponent from './ChartComponent'
 import ReactorModel from './ReactorModel';
-import { useEffect } from 'react';
+import './App.css'
 
 function App() {
   var viewModel = new ReactorModel(
