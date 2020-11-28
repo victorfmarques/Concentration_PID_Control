@@ -11,9 +11,12 @@ function App() {
   
   return (
     <div className="AppWrapper">
-      <FormComponent viewModel={viewModel}/>
       <div className="GraphicalWrapper">
-        <ReactorComponent viewModel={viewModel}/>
+        <FormComponent viewModel={viewModel}/>
+        <ReactorComponent viewModel={viewModel}/>  
+      </div>
+      
+      <div className="GraphicalWrapper">
         <ChartComponent
           viewModel={viewModel}
         />

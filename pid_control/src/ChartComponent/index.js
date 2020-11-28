@@ -5,30 +5,28 @@ import './index.css'
 const ChartComponent = (props) =>{
 
     const {viewModel} = props
-    const chartRef = React.createRef();
+    const chartConcentracaoRef = React.createRef();
+    const chartTaxaEntradaRef = React.createRef();
 
+    const countLimiter = 30 
     
-    function drawChart(){
-        const myChartRef = chartRef.current.getContext("2d");
+    function drawChart(ref, chartLabel, ticks){
+        const myChartRef = ref.current.getContext("2d");
         return new Chart(
             myChartRef,
             {
                 type: "line",
                 data: {
-                    //Bring in data
                     datasets: [
                         {
-                            label: "Concentração"
-                        }
+                            label: chartLabel
+                        },
                     ]
                 },
                 options: {
                     scales: {
                         yAxes: [{
-                            ticks: {
-                                suggestedMin: -100,
-                                suggestedMax: 100
-                            }
+                            ticks
                         }]
                     },
                     animation: {
@@ -41,34 +39,64 @@ const ChartComponent = (props) =>{
     
 
     useEffect(()=>{
-        var chart = drawChart()
+        var chartConcentração = drawChart(
+            chartConcentracaoRef,
+            "Concentração",
+            {
+                suggestedMin: 0,
+                suggestedMax: 1
+            }
+        )
+
+        var chartTaxaEntrada = drawChart(
+            chartTaxaEntradaRef,
+            "Taxa de Entrada",
+            {
+                suggestedMin: -10,
+                suggestedMax: 10
+            }
+        )
 
         var countMeasures = -1
-        setInterval(()=>{
-            console.log(chart)
-            countMeasures ++
-            if (chart != null){
-                chart.data.labels.push(countMeasures.toString())
-                chart.data.datasets[0].data.push(viewModel.getConcentration())
-                if (chart.data.labels.length > 5){
-                    chart.data.labels.splice(0,1)
-                    chart.data.datasets[0].data.splice(0,1)
-                }
-                chart.update();
-            }
-        } ,1000);
 
+        setInterval(()=>{
+
+            countMeasures ++
+
+            if (chartConcentração != null){
+                chartConcentração.data.labels.push(countMeasures.toString())
+                chartConcentração.data.datasets[0].data.push(viewModel.getConcentration())
+                if (chartConcentração.data.labels.length > countLimiter){
+                    chartConcentração.data.labels.splice(0,1)
+                    chartConcentração.data.datasets[0].data.splice(0,1)
+                }
+                chartConcentração.update();
+            }
+
+            if (chartTaxaEntrada != null){
+                chartTaxaEntrada.data.labels.push(countMeasures.toString())
+                chartTaxaEntrada.data.datasets[0].data.push(viewModel.taxaEntrada)
+                if (chartTaxaEntrada.data.labels.length > countLimiter){
+                    chartTaxaEntrada.data.labels.splice(0,1)
+                    chartTaxaEntrada.data.datasets[0].data.splice(0,1)
+                }
+                chartTaxaEntrada.update();
+            }
+
+
+        } ,1000);
     },[])
 
-    
-    
 
     return (
         <React.Fragment>
             <div className="container-fluid">
                 <div className="ChartWrapper">
                     <div className="chartAreaWrapper">
-                        <canvas id="myChart" ref={chartRef} />
+                        <canvas id="myChart" ref={chartConcentracaoRef} />
+                    </div>
+                    <div className="chartAreaWrapper">
+                        <canvas id="myChart" ref={chartTaxaEntradaRef} />
                     </div>
                 </div>
             </div>

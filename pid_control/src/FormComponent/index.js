@@ -8,9 +8,9 @@ const FormComponent =  (props) =>{
     const [concetracaoE, setConcentracaoE] = useState(viewModel.concetracaoE ?? 0);
     const [concetracaoI, setConcentracaoI] = useState(viewModel.concetracaoI ?? 0);
     const [volume, setVolume] = useState(viewModel.volume ?? 0);
-    const [p, setP] = useState(viewModel.p ?? 0);
-    const [i, setI] = useState(viewModel.i ?? 0);
-    const [d, setD] = useState(viewModel.d ?? 0);
+    const [p, setP] = useState(viewModel.kP ?? 0);
+    const [i, setI] = useState(viewModel.kI ?? 0);
+    const [d, setD] = useState(viewModel.kD ?? 0);
 
     function handleVazaoE(input){
         let value = input.target.value;
@@ -57,21 +57,21 @@ const FormComponent =  (props) =>{
         let value = input.target.value;
         const valueParsed = parseFloat(value ? value : 0);
         setP(valueParsed);
-        viewModel.p = valueParsed;
+        viewModel.kP = valueParsed;
     }
 
     function handleI(input){
         let value = input.target.value;
         const valueParsed = parseFloat(value ? value : 0);
         setI(valueParsed);
-        viewModel.i = valueParsed;
+        viewModel.kI = valueParsed;
     }
 
     function handleD(input){
         let value = input.target.value;
         const valueParsed = parseFloat(value ? value : 0);
         setD(valueParsed);
-        viewModel.d = valueParsed;
+        viewModel.kD = valueParsed;
     }
 
     return (
