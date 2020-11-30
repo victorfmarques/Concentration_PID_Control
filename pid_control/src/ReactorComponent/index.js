@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './index.css';
 
 
@@ -7,13 +7,13 @@ const ReactorComponent = (props) =>{
     var {viewModel} = props
 
     function mudarVolume(){
-        if(viewModel.volume == 100){
+        if(viewModel.volume === 100){
             document.getElementById("liquido").style.height='33%';
         }
-        else if(viewModel.volume == 200){
+        else if(viewModel.volume === 200){
             document.getElementById("liquido").style.height='66%';
         }
-        else if(viewModel.volume == 300){
+        else if(viewModel.volume === 300){
             document.getElementById("liquido").style.height='100%';
         }
     }
@@ -65,8 +65,6 @@ const ReactorComponent = (props) =>{
                     </div>
                 </div>
             </div>
-            {/* <button onClick={mudarVolume}>Mudar</button>
-            <button onClick={mudarconcentracaoE}>Mudar</button> */}
         </React.Fragment>
     )
 }
